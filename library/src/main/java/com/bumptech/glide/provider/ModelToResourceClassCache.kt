@@ -4,6 +4,10 @@ import androidx.collection.ArrayMap
 import com.bumptech.glide.util.MultiClassKey
 import java.util.concurrent.atomic.AtomicReference
 
+/**
+ * Maintains a cache of Model + Resource class to a set of registered resource classes that are
+ * subclasses of the resource class that can be decoded from the model class.
+ */
 class ModelToResourceClassCache {
     private val resourceClassKeyRef = AtomicReference<MultiClassKey>()
     private val registeredResourceClassCache: ArrayMap<MultiClassKey, List<Class<*>>> = ArrayMap()
