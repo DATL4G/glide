@@ -50,7 +50,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_7.toString()
+        jvmTarget = JavaVersion.VERSION_1_6.toString()
     }
 }
 
