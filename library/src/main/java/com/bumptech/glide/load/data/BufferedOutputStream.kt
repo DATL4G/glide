@@ -42,7 +42,7 @@ class BufferedOutputStream @VisibleForTesting internal constructor(private val o
 
             val remainingSpaceInBuffer = buffer?.size?.minus(index) ?: 0
             val totalBytesToWriteToBuffer = min(remainingToWrite, remainingSpaceInBuffer)
-            System.arraycopy(b, currentOffset, buffer, index, totalBytesToWriteToBuffer)
+            buffer?.let { System.arraycopy(b, currentOffset, it, index, totalBytesToWriteToBuffer) }
             index += totalBytesToWriteToBuffer
             writtenSoFar += totalBytesToWriteToBuffer
             maybeFlushBuffer()

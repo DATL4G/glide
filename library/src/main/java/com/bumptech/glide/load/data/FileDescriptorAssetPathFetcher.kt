@@ -6,10 +6,11 @@ import com.bumptech.glide.load.DataSource
 import java.io.IOException
 
 /** Fetches an [android.os.ParcelFileDescriptor] for an asset path.  */
-class FileDescriptorAssetPathFetcher(assetManager: AssetManager?, assetPath: String?) : AssetPathFetcher<ParcelFileDescriptor?>(assetManager!!, assetPath!!) {
+class FileDescriptorAssetPathFetcher(assetManager: AssetManager, assetPath: String) : AssetPathFetcher<ParcelFileDescriptor?>(assetManager, assetPath) {
+
     @Throws(IOException::class)
-    override fun loadResource(assetManager: AssetManager?, path: String?): ParcelFileDescriptor {
-        return assetManager!!.openFd(path!!).parcelFileDescriptor
+    override fun loadResource(assetManager: AssetManager, path: String): ParcelFileDescriptor {
+        return assetManager.openFd(path).parcelFileDescriptor
     }
 
     @Throws(IOException::class)

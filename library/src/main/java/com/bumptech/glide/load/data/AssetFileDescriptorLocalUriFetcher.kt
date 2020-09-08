@@ -7,7 +7,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 
 /** Fetches an [AssetFileDescriptor] for a local [android.net.Uri].  */
-class AssetFileDescriptorLocalUriFetcher(contentResolver: ContentResolver?, uri: Uri?) : LocalUriFetcher<AssetFileDescriptor?>(contentResolver, uri) {
+class AssetFileDescriptorLocalUriFetcher(contentResolver: ContentResolver, uri: Uri) : LocalUriFetcher<AssetFileDescriptor?>(contentResolver, uri) {
 
     @Throws(FileNotFoundException::class)
     override fun loadResource(uri: Uri, contentResolver: ContentResolver): AssetFileDescriptor {

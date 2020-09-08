@@ -54,7 +54,7 @@ abstract class AssetPathFetcher<T>     // Public API.
      * @param path A string path pointing to a resource in assets to open.
      */
     @Throws(IOException::class)
-    protected abstract fun loadResource(assetManager: AssetManager?, path: String?): T
+    protected abstract fun loadResource(assetManager: AssetManager, path: String): T
 
     /**
      * Closes the concrete data type if necessary.

@@ -162,7 +162,7 @@ public final class Downsampler {
   }
 
   public boolean handles(@SuppressWarnings("unused") ParcelFileDescriptor source) {
-    return ParcelFileDescriptorRewinder.isSupported();
+    return ParcelFileDescriptorRewinder.Companion.isSupported();
   }
 
   /**

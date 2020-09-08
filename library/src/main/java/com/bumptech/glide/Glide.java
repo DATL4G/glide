@@ -437,7 +437,7 @@ public class Glide implements ComponentCallbacks2 {
         .append(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, byteBufferBitmapDecoder)
         .append(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, streamBitmapDecoder);
 
-    if (ParcelFileDescriptorRewinder.isSupported()) {
+    if (ParcelFileDescriptorRewinder.Companion.isSupported()) {
       registry.append(
           Registry.BUCKET_BITMAP,
           ParcelFileDescriptor.class,
@@ -508,7 +508,7 @@ public class Glide implements ComponentCallbacks2 {
         /* Models */
         .register(new InputStreamRewinder.Factory(arrayPool));
 
-    if (ParcelFileDescriptorRewinder.isSupported()) {
+    if (ParcelFileDescriptorRewinder.Companion.isSupported()) {
       registry.register(new ParcelFileDescriptorRewinder.Factory());
     }
 
