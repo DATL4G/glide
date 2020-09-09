@@ -50,7 +50,10 @@ class SizeConfigStrategy : LruPoolStrategy {
         }
 
         init {
-            var result: Array<Bitmap.Config?> = arrayOf(Bitmap.Config.ARGB_8888, null)
+            var result: Array<Bitmap.Config?> = arrayOf(
+                    Bitmap.Config.ARGB_8888,
+                    // The value returned by Bitmaps with the hidden Bitmap config.
+                    null)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 result = result.copyOf(result.size + 1)
                 result[result.size - 1] = Bitmap.Config.RGBA_F16
@@ -62,6 +65,7 @@ class SizeConfigStrategy : LruPoolStrategy {
     private val keyPool = KeyPool()
     private val groupedMap = GroupedLinkedMap<Key?, Bitmap>()
     private val sortedSizes: MutableMap<Bitmap.Config?, NavigableMap<Int, Int>> = HashMap()
+
     override fun put(bitmap: Bitmap) {
         val size = Util.getBitmapByteSize(bitmap)
         val key = keyPool[size, bitmap.config]
