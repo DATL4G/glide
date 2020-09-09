@@ -109,7 +109,7 @@ public final class Api {
     String result = CACHED_URLS.get(entry);
     if (result == null) {
       result = photo.getPartialUrl() + sizeKey + ".jpg";
-      CACHED_URLS.put(entry, result);
+      CACHED_URLS.putKey(entry, result);
     }
     return result;
   }

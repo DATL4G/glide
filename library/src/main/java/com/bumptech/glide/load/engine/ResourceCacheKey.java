@@ -90,7 +90,7 @@ final class ResourceCacheKey implements Key {
     byte[] result = RESOURCE_CLASS_BYTES.get(decodedResourceClass);
     if (result == null) {
       result = decodedResourceClass.getName().getBytes(CHARSET);
-      RESOURCE_CLASS_BYTES.put(decodedResourceClass, result);
+      RESOURCE_CLASS_BYTES.putKey(decodedResourceClass, result);
     }
     return result;
   }

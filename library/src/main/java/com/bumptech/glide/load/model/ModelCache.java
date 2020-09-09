@@ -62,7 +62,7 @@ public class ModelCache<A, B> {
    */
   public void put(A model, int width, int height, B value) {
     ModelKey<A> key = ModelKey.get(model, width, height);
-    cache.put(key, value);
+    cache.putKey(key, value);
   }
 
   /** Removes all entries from the cache. */
